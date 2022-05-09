@@ -9,9 +9,12 @@ class BSTclass
     BSTnode* root;
 
 public:
-    BSTclass() : root(nullptr) {};
-    //~BSTclass();
+	int &NumComp;
+    BSTclass(int &_NumComp) : root(nullptr), NumComp(_NumComp) {};
+    ~BSTclass();
     void Insert(Person *item);
+	void Free(BSTnode*);
+
     BSTnode* Delete(BSTnode*, int);
     BSTnode* getRoot();
     BSTnode* findMin(BSTnode*);

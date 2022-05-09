@@ -5,7 +5,7 @@ using namespace std;
 
 int Heap::Left(int node)
 {
-	return 2*node +1;
+	return 2 * node + 1;
 }
 
 int Heap::Right(int node)
@@ -30,11 +30,13 @@ void Heap::FixHeap(int node)
 	int left = Left(node);
 	int right = Right(node);
 
+	NumComp++;
 	if (left < heapSize && data[left]->id < data[node]->id)
 		min = left;
 	else
 		min = node;
 
+	NumComp += 1;
 	if (right < heapSize && data[right]->id < data[min]->id)
 		min = right;
 
@@ -45,7 +47,7 @@ void Heap::FixHeap(int node)
 	}
 }
 
-Heap::Heap(int max)
+Heap::Heap(int max, int &_NumComp) : NumComp(_NumComp)
 {
 	data = new Person*[max];
 	maxSize = max;
@@ -53,7 +55,7 @@ Heap::Heap(int max)
 	allocated = 1;
 }
 
-Heap::Heap(Person * P[], int n)
+Heap::Heap(Person * P[], int n, int &_NumComp) : NumComp(_NumComp)
 {
 	heapSize = maxSize = n;
 	data = P;

@@ -13,8 +13,9 @@ private:
 	static int Parent(int node);
 	void FixHeap(int node);
 public:
-	Heap(int Max);
-	Heap(Person * A[], int n);
+	int &NumComp;
+	Heap(int Max, int &_NumComp);
+	Heap(Person * A[], int n, int &NumComp);
 	~Heap();
 	void Swap(int p1, int p2);
 	Person * Min();
